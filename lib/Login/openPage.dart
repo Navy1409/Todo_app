@@ -34,7 +34,7 @@ class _OpenPageState extends State<OpenPage> {
               "Lets Start Here",
               style: TextStyle(
                   color: AppColors.text1,
-                  fontSize: 25,
+                  fontSize: 25.h,
                   fontWeight: FontWeight.bold
               ),
             ),
@@ -43,6 +43,7 @@ class _OpenPageState extends State<OpenPage> {
         )
       ),
       bottomNavigationBar: BottomAppBar(
+        padding: EdgeInsets.all(0),
         height: 200.h,
         elevation: 0,
         color: AppColors.bgColor2,
