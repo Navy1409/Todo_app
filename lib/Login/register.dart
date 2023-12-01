@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/Login/register.dart';
-import 'package:todo_app/Utilis/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todo_app/Utilis/colors.dart';
 import 'package:todo_app/firebase_functions.dart';
 
-
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
 
@@ -50,7 +48,7 @@ class _LoginState extends State<Login> {
                               child: TextFormField(
                                 controller: emailTextController,
                                 decoration: InputDecoration(
-                                  border: InputBorder.none,
+                                    border: InputBorder.none,
                                     labelText: "Enter e-mail"
                                 ),
                               ),
@@ -92,21 +90,21 @@ class _LoginState extends State<Login> {
                   height: 10.h,
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.bgColor1
-                  ),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.bgColor1
+                    ),
                     onPressed: (){
-                    signInWithEmailAndPassword(emailTextController.text, pswdTextController.text,context);
+                      createUserWithEmailAndPassword(emailTextController.text, pswdTextController.text,context);
                     },
                     child: Container(
                       alignment: Alignment.center,
                       width: 200.w,
                       child: Text(
-                          "Login",
+                        "Register",
                         style: TextStyle(
-                          color: AppColors.text1,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20
+                            color: AppColors.text1,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20
                         ),
                       ),
                     )
@@ -119,27 +117,20 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                          "New User?  ",
+                        "New User?  ",
                         style: TextStyle(
-                          color: AppColors.text2,
-                          fontSize: 17.sp
+                            color: AppColors.text2,
+                            fontSize: 17.sp
                         ),
                       ),
                       InkWell(
-                        onTap: (){
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context)=> Register()
-                            )
-                          );
-                        },
+                        onTap: (){},
                         child: Text(
                           "Register",
                           style: TextStyle(
-                            color: AppColors.text1,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17.sp
+                              color: AppColors.text1,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17.sp
                           ),
                         ),
                       )
