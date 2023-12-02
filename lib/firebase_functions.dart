@@ -10,6 +10,7 @@ createUserWithEmailAndPassword(String emailAddress, String password, BuildContex
       email: emailAddress,
       password: password,
     );
+    //kiiii
     User? user= credential.user;
     if(user!=null){
       Navigator.push(
