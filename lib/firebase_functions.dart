@@ -66,7 +66,8 @@ signInWithEmailAndPassword(String emailAddress, String password, BuildContext co
         email: emailAddress,
         password: password
     );
-    if(credential!=null){
+    User? user= credential.user;
+    if(user!=null){
       Navigator.push(
           context,
           MaterialPageRoute(
