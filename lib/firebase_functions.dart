@@ -4,6 +4,8 @@ import 'package:todo_app/Login/login.dart';
 import 'package:todo_app/Utilis/colors.dart';
 import 'package:todo_app/home.dart';
 
+FirebaseAuth auth= FirebaseAuth.instance;
+
 createUserWithEmailAndPassword(String emailAddress, String password, BuildContext context) async {
   try {
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -57,6 +59,16 @@ createUserWithEmailAndPassword(String emailAddress, String password, BuildContex
     }
   } catch (e) {
     print(e);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(
+          "Something went wrong",
+          style: TextStyle(
+              color: AppColors.text1
+          ),
+        ),
+          backgroundColor: AppColors.bgColor1,
+        )
+    );
   }
 }
 

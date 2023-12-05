@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/Login/openPage.dart';
 import 'package:todo_app/Utilis/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:lottie/lottie.dart';
+import 'package:todo_app/home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -22,7 +24,11 @@ class _SplashState extends State<Splash> {
         (){
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-              builder: (BuildContext) => OpenPage()
+              builder: (BuildContext){
+                return FirebaseAuth.instance.currentUser==null
+                    ?OpenPage()
+                    :Home();
+              }
           )
         );
         }

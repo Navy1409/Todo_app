@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todo_app/Login/login.dart';
 import 'package:todo_app/Utilis/colors.dart';
 import 'package:todo_app/firebase_functions.dart';
 
@@ -117,16 +118,22 @@ class _RegisterState extends State<Register> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "New User?  ",
+                        "Already a user?  ",
                         style: TextStyle(
                             color: AppColors.text2,
                             fontSize: 17.sp
                         ),
                       ),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.pushReplacement(
+                              context, MaterialPageRoute(
+                              builder: (context)=> Login()
+                          )
+                          );
+                        },
                         child: Text(
-                          "Register",
+                          "Login",
                           style: TextStyle(
                               color: AppColors.text1,
                               fontWeight: FontWeight.bold,

@@ -118,7 +118,7 @@ class _LoginState extends State<Login> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                        Text(
                           "New User?  ",
                         style: TextStyle(
                           color: AppColors.text2,
