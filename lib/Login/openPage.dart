@@ -51,7 +51,7 @@ class _OpenPageState extends State<OpenPage> {
           alignment: Alignment.bottomRight,
           child: InkWell(
             onTap: (){
-              Navigator.of(context).push(
+              Navigator.pushReplacement(context,
                   MaterialPageRoute(
                       builder: (BuildContext)=> Login()
                   )

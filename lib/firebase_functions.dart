@@ -80,7 +80,7 @@ signInWithEmailAndPassword(String emailAddress, String password, BuildContext co
     );
     User? user= credential.user;
     if(user!=null){
-      Navigator.push(
+      Navigator.pushReplacement(
           context,
           MaterialPageRoute(
               builder:(context)=> Home()
