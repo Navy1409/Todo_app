@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/Login/login.dart';
 import 'package:todo_app/Utilis/colors.dart';
 import 'package:todo_app/home.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 FirebaseAuth auth= FirebaseAuth.instance;
 
@@ -14,6 +15,10 @@ createUserWithEmailAndPassword(String emailAddress, String password, BuildContex
     );
     User? user= credential.user;
     if(user!=null){
+
+      DatabaseReference userRef = FirebaseDatabase.instance.reference().child('user');
+      String uid = credential.user!.uid;
+
       Navigator.push(
         context,
         MaterialPageRoute(
