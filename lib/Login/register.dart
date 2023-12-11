@@ -17,6 +17,7 @@ class _RegisterState extends State<Register> {
 
     final emailTextController = TextEditingController();
     final pswdTextController = TextEditingController();
+    final nameTextController = TextEditingController();
 
     return SafeArea(
       child: Scaffold(
@@ -35,6 +36,32 @@ class _RegisterState extends State<Register> {
                   ),
                   child: Column(
                     children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
+                        height: 45.h,
+                        child: Row(
+                          children: [
+                            Icon(Icons.drive_file_rename_outline_outlined),
+                            SizedBox(
+                              width: 20.w,
+                            ),
+                            Container(
+                              width: 250.w,
+                              child: TextFormField(
+                                controller: nameTextController,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: "Enter Full Name"
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        height: 2,
+                        thickness: 2,
+                      ),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
                         height: 45.h,
@@ -126,11 +153,7 @@ class _RegisterState extends State<Register> {
                       ),
                       InkWell(
                         onTap: (){
-                          Navigator.pushReplacement(
-                              context, MaterialPageRoute(
-                              builder: (context)=> Login()
-                          )
-                          );
+                          Navigator.pop(context);
                         },
                         child: Text(
                           "Login",
