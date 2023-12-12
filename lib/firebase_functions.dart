@@ -7,7 +7,7 @@ import 'package:firebase_database/firebase_database.dart';
 
 FirebaseAuth auth= FirebaseAuth.instance;
 
-createUserWithEmailAndPassword(String emailAddress, String password, BuildContext context) async {
+createUserWithEmailAndPassword(String emailAddress, String password, BuildContext context, String name) async {
   // ooooooooooooooo
   try {
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -19,6 +19,12 @@ createUserWithEmailAndPassword(String emailAddress, String password, BuildContex
 
       DatabaseReference userRef = FirebaseDatabase.instance.reference().child('user');
       String uid = credential.user!.uid;
+
+      await userRef.child(uid).set({
+        'fullName':name,
+        'email':emailAddress,
+        'uid':uid
+      });
 
       Navigator.push(
         context,

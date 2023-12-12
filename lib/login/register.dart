@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todo_app/Login/login.dart';
-import 'package:todo_app/Utilis/colors.dart';
+import 'package:todo_app/utilis/colors.dart';
 import 'package:todo_app/firebase_functions.dart';
 
 class Register extends StatefulWidget {
@@ -122,7 +121,7 @@ class _RegisterState extends State<Register> {
                         backgroundColor: AppColors.bgColor1
                     ),
                     onPressed: (){
-                      createUserWithEmailAndPassword(emailTextController.text, pswdTextController.text,context);
+                      createUserWithEmailAndPassword(emailTextController.text, pswdTextController.text,context, nameTextController.text);
                     },
                     child: Container(
                       alignment: Alignment.center,
